@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+body {
+    font-family: 'Helvetica', sans-serif;
+    color: white;
+    background-color: black;
+    line-height: 1.5;
+    display: flex; /* Change from grid to flex */
+    flex-direction: column; /* Stack elements normally */
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 101;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between; /* Adjusts spacing */
+    align-items: center;
+    width: 100%;
+    list-style: none;
+    padding: 10px;
+}
+
+/* Individual manual positioning */
+nav ul li:nth-child(1) { /* Home */
+    margin-left:70vw;
+}
+
+nav ul li:nth-child(2) { /* Info */
+    margin-left: 8vw;
+}
+
+nav ul li:nth-child(3) { /* LinkedIn */
+    margin-left: auto; /* Pushes to right */
+    margin-right: 50px;
+}
+
+
+nav ul li {
+    font-family: "IBM Plex Mono", serif;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: gray;
+}
+
+/* Text Grid */
+.text {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(6, minmax(2px, auto)); /* More flexible rows */
+    gap: 0px;
+   
+    height: 100vh; /* Full viewport height */
+    align-items: start;
+}
+
+/* Proper positioning of text */
+.h1-section {
+    
+    grid-column: 1 / span 12;
+    grid-row: 1;
+    font-size: 12vw;
+}
+
+.h2-section {
+    grid-column: 1 / span 4;
+    grid-row: 2;
+    font-size: 12vw;
+}
+
+.h3-section {
+    grid-column: 10 / span 3; 
+ 
+    grid-row: 2;
+    font-size: 12vw;
+}
+
+.h4-section {
+    grid-column: 3 / span 3;
+    grid-row: 3;
+    font-size: 12vw;
+}
+
+.h5-section {
+    grid-column: 3 / span 6;
+    grid-row: 6;
+    font-size: 12vw;
+}
+
+  
+.link-section {
+    grid-column: 3 / span 4; /* Adjust column placement */
+    grid-row: 4; /* Position it lower in the layout */
+    font-family: "IBM Plex Mono", serif;
+    font-size: 1.2vw;
+    list-style: none;
+    text-align: left;
+    line-height: 0.9;
+}
+
+.link-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.link-section li {
+    margin-bottom: 5px; /* Space between links */
+}
+
+.link-section a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.link-section a:hover {
+    color: gray;
+}
+
+  
+p{
+    font-family: "IBM Plex Mono", serif;
+    grid-column: 10 / span 2;
+    grid-row: 3;
+    font-size: 1vw;
+}
+/* Mobile Responsive Fix */
+
+.text h1, 
+.text h2, 
+.text h3, 
+.text h4, 
+.text h5 {
+    line-height: 0.4; /* Tighter line spacing */
+ 
+    margin: 0; /* Remove extra spacing */
+    padding: 0; /* No extra padding */
+}
+.custom-cursor {
+    position: fixed;
+    width: 20px;  /* Size of the cursor */
+    height: 20px;
+    background-color:red;
+    border-radius: 50%;
+    pointer-events: none; /* Prevents interfering with clicks */
+    z-index: 9999; /* Keeps it on top */
+    transform: translate(-50%, -50%); /* Centers the dot */
+  }
+  .image-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container img {
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover + .image-container {
+    opacity: 1;
+}

@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor:none;
+  }
+  
+  body {
+    font-family: 'Helvetica', sans-serif;
+    color: white;
+    background-color: black;
+    line-height: 1.5;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12-column grid for manual positioning */
+    grid-template-rows: repeat(12, minmax(50px, auto)); /* 12 rows for grid positioning */
+    gap: 10px;
+    height: 300vh;
+    margin: 0;
+    
+  }
+  
+  
+  header {
+    position: sticky;
+    top:0;
+    grid-column: 9/ -1;
+    padding-left: 35px;
+    grid-row: 1;
+    
+    z-index:10;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    list-style: none;
+  }
+  nav ul li{
+    font-family: "IBM Plex Mono", serif;
+  }
+  nav ul li a {
+    font-family: "IBM Plex Mono", serif;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  nav ul li a:hover {
+    color: gray; 
+  }
+  
+  .text{
+    position: relative;
+    display:grid;
+    grid-template-columns: repeat(12, 1fr); /* Align with the body grid */ 
+     grid-template-rows: auto; /* Auto height for rows */ 
+      gap: 10px; /* Space between grid items */  
+      grid-column: 1 / -1;
+  }
+  .image {
+    position: absolute; /* This positions the image relative to its parent */
+    top: 150px;
+    right: 290px;
+    width: 10%;
+    height: auto;
+    position:fixed;
+    z-index: -1; /* Ensure the image stays behind the text */
+  }
+  .h1-section {
+    font-family: "IBM Plex Mono", serif;
+    font-weight:400;
+    position:relative;
+    text-wrap: no wrap;
+    line-height: 1;
+    font-size: 16px;
+    padding-top:350px;
+    padding-left: 1070px;
+    grid-column: 5/ span 12; 
+    grid-row: 3;
+   position:fixed;
+    text-align: center;
+  }
+  
+  
+  .h2-section {
+    font-family: "IBM Plex Mono", serif;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+   
+    font-size:16px;
+    padding-top: 850px;
+    padding-left: 50px;
+    grid-column: 1 / span 3;
+    grid-row: 4 / span 2;
+  }
+  
+  .h3-section {
+    font-family: "IBM Plex Mono", serif;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    font-size:16px;
+  
+    padding-top: 120px;
+    grid-column: 3 / span 2;
+    grid-row: 6 ;
+  }
+  
+  .h4-section {
+    font-family: "IBM Plex Mono", serif;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    text-transform: lowercase;
+    padding-top: 120px;
+    font-size:16px;
+    
+    grid-column: 5 / span 3;
+    grid-row: 7;
+  }
+  .h5-section{
+    font-family: "IBM Plex Mono", serif;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    text-transform: lowercase;
+    font-size:16px;
+    padding-top: 120px;
+     grid-column: 5 / span 3; 
+    grid-row: 8;
+  }
+  .h6-section{
+    font-family: "IBM Plex Mono", serif;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    text-transform: lowercase;
+    font-size:16px;
+   
+   top:100px;
+    grid-column: 3 / span 2; 
+    grid-row: 12;
+  }
+  
+  
+  
+   p {
+    position: relative;
+    text-transform: lowercase;
+    font-size:12px;
+    font-weight:100;
+   
+    grid-column: 3 / span 2;
+    top:250px; 
+    grid-row: 20;
+  }
+  /* Initially hidden elements */
+.h2-section, .h3-section, .h4-section, .h5-section, .h6-section, p {
+  opacity: 0;
+  transform: translateY(30px); /* Slight movement */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* When elements are in view */
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 20px;  /* Size of the cursor */
+    height: 20px;
+    background-color: #ba3b3b;
+    border-radius: 50%;
+    pointer-events: none; /* Prevents interfering with clicks */
+    z-index: 9999; /* Keeps it on top */
+    transform: translate(-50%, -50%); /* Centers the dot */
+  }
+  @media (max-width: 768px) {
+    body{
+      height:350vh;
+    }
+    nav ul {
+      flex-direction: column;
+      align-items: flex-start; /* Aligns to the left, change to center if preferred */
+      gap: 10px; /* Adds spacing between items */
+    }
+  
+    .h1-section {
+      max-width: 500px;
+      font-size: 80px; /* Adjust as needed */
+    }
+    .mainlinks ul li a {
+      font-size: 24px; /* Smaller font size for mobile */
+    }
+    .h2-section{
+      font-size:10px;
+    }
+    .h3-section{
+      font-size:10px;
+    }
+    .h4-section{
+      font-size:10px;
+    }
+    .h5-section{
+      font-size:10px;
+    }
+    .h6-section{
+      font-size:10px;
+    }
+  }
+  
+  
